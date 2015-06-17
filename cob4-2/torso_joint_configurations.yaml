@@ -1,6 +1,6 @@
-joint_names: ["torso_pan_joint", "torso_tilt_joint"]
+joint_names: ["torso_2_joint","torso_3_joint"]
 action_name: /torso/joint_trajectory_controller/follow_joint_trajectory
 service_ns: /torso/driver
-default_vel: 0.1
+default_vel: 0.4
 
-home: [[0.0,0.0]]
+home: [[0.0, 0.0]]
