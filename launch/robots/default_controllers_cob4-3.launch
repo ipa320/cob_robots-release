@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-	<arg name="robot" default="cob4-4"/>
+	<arg name="robot" default="cob4-3"/>
 
 	<!-- aggregated robot_state_publisher -->
 	<include file="$(find cob_bringup)/tools/robot_state_publisher.launch">
