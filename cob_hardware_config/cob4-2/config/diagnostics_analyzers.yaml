@@ -21,10 +21,10 @@ analyzers:
         type: diagnostic_aggregator/GenericAnalyzer
         path: t3
         contains: '-t3'
-#      s1:
-#        type: diagnostic_aggregator/GenericAnalyzer
-#        path: s1
-#        contains: '-s1'
+      s1:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: s1
+        contains: '-s1'
       h1:
         type: diagnostic_aggregator/GenericAnalyzer
         path: h1
@@ -72,6 +72,10 @@ analyzers:
         type: diagnostic_aggregator/GenericAnalyzer
         path: Scan Left
         contains: 'laser_left'
+      battery:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Battery Status
+        contains: 'bms'
 
   motors:
     type: diagnostic_aggregator/AnalyzerGroup
@@ -80,35 +84,33 @@ analyzers:
       torso:
         type: diagnostic_aggregator/GenericAnalyzer
         path: Torso
-        contains: 'torso'
+        contains: 'torso/driver'
       sensorring:
         type: diagnostic_aggregator/GenericAnalyzer
         path: Sensorring
-        contains: 'sensorring'
+        contains: 'sensorring/driver'
       arm_right:
         type: diagnostic_aggregator/GenericAnalyzer
         path: Arm Right
-        contains: 'arm_right'
+        contains: 'arm_right/driver'
       arm_left:
         type: diagnostic_aggregator/GenericAnalyzer
         path: Arm Left
-        contains: 'arm_left'
+        contains: 'arm_left/driver'
       base:
-        type: diagnostic_aggregator/GenericAnalyzer
+        type: diagnostic_aggregator/AnalyzerGroup
         path: Base
-        contains: 'base_controller'
+        analyzers:
+          base:
+            type: diagnostic_aggregator/GenericAnalyzer
+            path: drives
+            contains: 'base/driver'
+          base_twist_mux:
+            type: diagnostic_aggregator/GenericAnalyzer
+            path: twist_mux
+            contains: 'twist_mux'
 
   safety:
     type: diagnostic_aggregator/GenericAnalyzer
     path: Safety
     contains: 'safety'
-
-## remove diagnostics from gazebo in simulated case
-  simulation:
-    type: diagnostic_aggregator/DiscardAnalyzer
-    path: none
-    contains: 'joint'
-  simulation2:
-    type: diagnostic_aggregator/DiscardAnalyzer
-    path: none
-    contains: 'Controller'
