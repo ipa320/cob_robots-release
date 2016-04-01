@@ -18,7 +18,6 @@
 	<group>
 		<machine name="pc1" address="$(arg pc1)" env-loader="$(find cob_bringup)/env.sh" default="true" timeout="30"/>
 
-		<!-- pc monitor -->
 		<include file="$(find cob_bringup)/tools/pc_monitor.launch" >
 			<arg name="robot" value="$(arg robot)" />
 			<arg name="pc" value="$(arg pc1)" />
@@ -42,15 +41,15 @@
 		<!-- lower robot -->
 		<include file="$(find cob_bringup)/drivers/sick_s300.launch" >
 			<arg name="robot" value="$(arg robot)" />
-			<arg name="name" value="front" />
+			<arg name="name" value="base_laser_front" />
 		</include>
 		<include file="$(find cob_bringup)/drivers/sick_s300.launch" >
 			<arg name="robot" value="$(arg robot)" />
-			<arg name="name" value="rear" />
+			<arg name="name" value="base_laser_rear" />
 		</include>
 		<include file="$(find cob_bringup)/drivers/hokuyo.launch" >
 			<arg name="robot" value="$(arg robot)" />
-			<arg name="name" value="top" />
+			<arg name="name" value="base_laser_top" />
 		</include>
 
 		<!-- upper robot -->
@@ -103,19 +102,26 @@
 		</include>
 		<include file="$(find cob_bringup)/tools/teleop.launch" >
 			<arg name="robot" value="$(arg robot)" />
-			<arg name="version" value="v1" />
 		</include>
 
 		<!-- aggregated robot_state_publisher -->
 		<include file="$(find cob_bringup)/tools/robot_state_publisher.launch">
 			<arg name="robot" value="$(arg robot)" />
 		</include>
+
+		<!-- script server -->
+		<include file="$(find cob_script_server)/launch/script_server.launch" />
+
+		<!-- scan unifier -->
+		<include file="$(find cob_bringup)/drivers/scan_unifier.launch" >
+			<arg name="robot" value="$(arg robot)" />
+		</include>
+
 	</group>
 
 	<group>
 		<machine name="pc2" address="$(arg pc2)" env-loader="$(find cob_bringup)/env.sh" default="true" timeout="30"/>
 
-		<!-- pc monitor -->
 		<include file="$(find cob_bringup)/tools/pc_monitor.launch" >
 			<arg name="robot" value="$(arg robot)" />
 			<arg name="pc" value="$(arg pc2)" />
@@ -151,6 +157,7 @@
 		</include>
 		<!--include file="$(find cob_bringup)/drivers/image_flip_nodelet.launch" >
 			<arg name="robot" value="$(arg robot)" />
+			<arg name="camera_name" values="cam3d" />
 			<arg name="nodelet_manager" value="cam3d_nodelet_manager"/>
 			<arg name="start_manager" value="false"/>
 		</include-->
@@ -169,7 +176,6 @@
 	<group>
 		<machine name="pc3" address="$(arg pc3)" env-loader="$(find cob_bringup)/env.sh" default="true" timeout="30"/>
 
-		<!-- pc monitor -->
 		<include file="$(find cob_bringup)/tools/pc_monitor.launch" >
 			<arg name="robot" value="$(arg robot)" />
 			<arg name="pc" value="$(arg pc3)" />
