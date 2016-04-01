@@ -18,11 +18,14 @@
 	<!-- scanner and scanner-filter -->
 	<include file="$(find cob_bringup)/drivers/laser_scan_filter.launch">
 		<arg name="robot" value="$(arg robot)"/>
-		<arg name="name" value="front"/>
+		<arg name="name" value="base_laser_front"/>
 	</include>
 	<include file="$(find cob_bringup)/drivers/laser_scan_filter.launch">
 		<arg name="robot" value="$(arg robot)"/>
-		<arg name="name" value="rear"/>
+		<arg name="name" value="base_laser_rear"/>
+	</include>
+	<include file="$(find cob_bringup)/drivers/scan_unifier.launch" >
+		<arg name="robot" value="$(arg robot)" />
 	</include>
 
 	<include file="$(find cob_bringup)/drivers/relayboard.launch">
@@ -90,11 +93,9 @@
 	</include>
 -->
 
-	<!-- Lookat -->
-
 	<!-- start additional components -->
 	<!--include file="$(find cob_bringup)/drivers/sound.launch" /-->
 	<include file="$(find cob_bringup)/tools/base_collision_observer.launch" >
-		<arg name="robot" value="raw3-3"/>
+		<arg name="robot" value="$(arg robot)"/>
 	</include>
 </launch>
