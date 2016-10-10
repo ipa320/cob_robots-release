@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+	<include file="$(find cob_bringup)/robots/cob4-4.xml" >
+		<arg name="cob4-4-b1" value="cob4-4-b1"/>
+	</include>
+
+</launch>
