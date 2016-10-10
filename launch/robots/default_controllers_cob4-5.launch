@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-	<arg name="robot" default="cob4-1"/>
+	<arg name="robot" default="cob4-5"/>
 
 	<!-- aggregated robot_state_publisher -->
 	<include file="$(find cob_bringup)/tools/robot_state_publisher.launch">
@@ -36,34 +36,6 @@
 		<arg name="sim" value="true"/>
 	</include>
 
-	<!-- Torso -->
-	<!-- simulated driver services -->
-	<node ns="torso" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py" name="gazebo_services" cwd="node" respawn="false" output="screen" />
-	<!-- generic controllers -->
-	<include file="$(find cob_bringup)/controllers/generic_controller.launch">
-		<arg name="robot" value="$(arg robot)"/>
-		<arg name="component_name" value="torso"/>
-	</include>
-	<!-- Cartesian controllers -->
-	<include file="$(find cob_bringup)/controllers/generic_cartesian_controller.launch">
-		<arg name="robot" value="$(arg robot)"/>
-		<arg name="component_name" value="torso"/>
-	</include>
-
-	<!-- Head -->
-	<!-- simulated driver services -->
-	<node ns="head" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py" name="gazebo_services" cwd="node" respawn="false" output="screen" />
-	<!-- generic controllers -->
-	<include file="$(find cob_bringup)/controllers/generic_controller.launch">
-		<arg name="robot" value="$(arg robot)"/>
-		<arg name="component_name" value="head"/>
-	</include>
-	<!-- Cartesian controllers -->
-	<include file="$(find cob_bringup)/controllers/generic_cartesian_controller.launch">
-		<arg name="robot" value="$(arg robot)"/>
-		<arg name="component_name" value="head"/>
-	</include>
-
 	<!-- Sensorring -->
 	<!-- simulated driver services -->
 	<node ns="sensorring" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py" name="gazebo_services" cwd="node" respawn="false" output="screen" />
@@ -71,6 +43,48 @@
 	<include file="$(find cob_bringup)/controllers/generic_controller.launch">
 		<arg name="robot" value="$(arg robot)"/>
 		<arg name="component_name" value="sensorring"/>
+	</include>
+
+	<!-- Arms -->
+	<!-- simulated driver services -->
+	<node ns="arm_left" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py" name="gazebo_services" cwd="node" respawn="false" output="screen" />
+	<!-- generic controllers -->
+	<include file="$(find cob_bringup)/controllers/generic_controller.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="component_name" value="arm_left"/>
+	</include>
+	<!-- Cartesian controllers -->
+	<include file="$(find cob_bringup)/controllers/generic_cartesian_controller.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="component_name" value="arm_left"/>
+	</include>
+	<!-- simulated driver services -->
+	<node ns="arm_right" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py" name="gazebo_services" cwd="node" respawn="false" output="screen" />
+	<!-- generic controllers -->
+	<include file="$(find cob_bringup)/controllers/generic_controller.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="component_name" value="arm_right"/>
+	</include>
+	<!-- Cartesian controllers -->
+	<include file="$(find cob_bringup)/controllers/generic_cartesian_controller.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="component_name" value="arm_right"/>
+	</include>
+
+	<!-- Grippers -->
+	<!-- simulated driver services -->
+	<node ns="gripper_left" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py" name="gazebo_services" cwd="node" respawn="false" output="screen" />
+	<!-- generic controllers -->
+	<include file="$(find cob_bringup)/controllers/generic_controller.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="component_name" value="gripper_left"/>
+	</include>
+	<!-- simulated driver services -->
+	<node ns="gripper_right" pkg="cob_controller_configuration_gazebo" type="gazebo_services.py" name="gazebo_services" cwd="node" respawn="false" output="screen" />
+	<!-- generic controllers -->
+	<include file="$(find cob_bringup)/controllers/generic_controller.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="component_name" value="gripper_right"/>
 	</include>
 
 	<!-- camera nodelets -->
@@ -85,8 +99,18 @@
 	</include>
 
 	<include file="$(find cob_bringup)/drivers/image_flip.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="camera_name" value="torso_cam3d_down"/>
+	</include>
+
+	<include file="$(find cob_bringup)/drivers/image_flip.launch">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="camera_name" value="sensorring_cam3d_front"/>
+	</include>
+
+	<include file="$(find cob_bringup)/drivers/image_flip.launch">
 		<arg name="robot" value="$(arg robot)" />
-		<arg name="camera_name" value="sensorring_cam3d"/>
+		<arg name="camera_name" value="sensorring_cam3d_back"/>
 	</include>
 
 	<!-- start additional components -->
