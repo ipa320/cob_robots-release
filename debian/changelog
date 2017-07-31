@@ -1,0 +1,90 @@
+ros-indigo-cob-robots (0.6.7-1trusty) trusty; urgency=high
+
+  * moved cob_supported_robots to standalone repo
+  * remove obsolete package cob_controller_configuration_gazebo
+  * added cob_supported_robots package
+  * Merge pull request #573 <https://github.com/ipa320/cob_robots/issues/573> from ipa-fxm/move_cob_moveit_config
+    move cob_moveit_config
+  * add missing cob_default_robot_behavior to meta-package
+  * adjust version + add to meta-package
+  * manually fix changelog
+  * Contributors: Felix Messmer, Mathias Lüdtke, ipa-fxm
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Sun, 30 Jul 2017 22:00:00 -0000
+
+ros-indigo-cob-robots (0.6.6-1trusty) trusty; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Sun, 09 Oct 2016 22:00:00 -0000
+
+ros-indigo-cob-robots (0.6.5-1trusty) trusty; urgency=high
+
+  * cob_behaviour
+  * cob_behaviour
+  * Contributors: ipa-cob4-2
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Thu, 31 Mar 2016 22:00:00 -0000
+
+ros-indigo-cob-robots (0.6.4-1trusty) trusty; urgency=high
+
+  * migrate to package format 2
+  * remove trailing whitespaces
+  * revies dependencies
+  * Contributors: ipa-fxm
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Fri, 28 Aug 2015 22:00:00 -0000
+
+ros-indigo-cob-robots (0.6.3-1trusty) trusty; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Tue, 16 Jun 2015 22:00:00 -0000
+
+ros-indigo-cob-robots (0.6.2-1trusty) trusty; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Tue, 06 Jan 2015 23:00:00 -0000
+
+ros-indigo-cob-robots (0.6.1-1trusty) trusty; urgency=high
+
+  * merge
+  * move cob_monitoring to cob_command_tools
+  * Contributors: Florian Weisshardt, ipa-nhg
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Sun, 14 Dec 2014 23:00:00 -0000
+
+ros-indigo-cob-robots (0.6.0-1trusty) trusty; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Wed, 17 Sep 2014 22:00:00 -0000
+
+ros-indigo-cob-robots (0.5.4-1trusty) trusty; urgency=high
+
+  * New maintainer
+  * Contributors: ipa-nhg
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Wed, 27 Aug 2014 22:00:00 -0000
+
+ros-indigo-cob-robots (0.5.3-1trusty) trusty; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Thu, 27 Mar 2014 23:00:00 -0000
+
+ros-indigo-cob-robots (0.5.2-1trusty) trusty; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Wed, 26 Mar 2014 23:00:00 -0000
+
+ros-indigo-cob-robots (0.5.1-1trusty) trusty; urgency=high
+
+  * Initial catkinization.
+  * Contributors: abubeck
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Wed, 19 Mar 2014 23:00:00 -0000
+
+
