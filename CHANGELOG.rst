@@ -2,6 +2,21 @@
 Changelog for package cob_robots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.7 (2017-07-31)
+------------------
+* moved cob_supported_robots to standalone repo
+* remove obsolete package cob_controller_configuration_gazebo
+* added cob_supported_robots package
+* Merge pull request `#573 <https://github.com/ipa320/cob_robots/issues/573>`_ from ipa-fxm/move_cob_moveit_config
+  move cob_moveit_config
+* add missing cob_default_robot_behavior to meta-package
+* adjust version + add to meta-package
+* manually fix changelog
+* Contributors: Felix Messmer, Mathias Lüdtke, ipa-fxm
+
+0.6.6 (2016-10-10)
+------------------
+
 0.6.5 (2016-04-01)
 ------------------
 * cob_behaviour
@@ -14,19 +29,6 @@ Changelog for package cob_robots
 * remove trailing whitespaces
 * revies dependencies
 * Contributors: ipa-fxm
-
-0.6.6 (2016-10-10)
-------------------
-* 0.6.5
-* update changelog
-* 0.6.4
-* update changelog
-* migrate to package format 2
-* remove trailing whitespaces
-* cob_behaviour
-* revies dependencies
-* cob_behaviour
-* Contributors: ipa-cob4-2, ipa-fxm
 
 0.6.3 (2015-06-17)
 ------------------
