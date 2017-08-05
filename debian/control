@@ -1,0 +1,13 @@
+Source: ros-kinetic-cob-default-robot-config
+Section: misc
+Priority: extra
+Maintainer: Nadia Hammoudeh Garcia <nhg@ipa.fhg.de>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-cob-supported-robots, ros-kinetic-roslaunch
+Homepage: http://ros.org/wiki/cob_default_robot_config
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-cob-default-robot-config
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-roslaunch
+Description: Default configuration of the different robots supported by the Care-O-bot stacks.
+ Configuration is e.g. preconfigured joint positions.
