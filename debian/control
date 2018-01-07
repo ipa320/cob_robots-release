@@ -1,0 +1,13 @@
+Source: ros-kinetic-cob-hardware-config
+Section: misc
+Priority: extra
+Maintainer: Felix Messmer <fxm@ipa.fhg.de>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-cob-supported-robots, ros-kinetic-roslaunch, ros-kinetic-rostest
+Homepage: http://ros.org/wiki/cob_hardware_config
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-cob-hardware-config
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-cob-calibration-data, ros-kinetic-cob-description, ros-kinetic-cob-omni-drive-controller, ros-kinetic-diagnostic-aggregator, ros-kinetic-joint-state-controller, ros-kinetic-joint-trajectory-controller, ros-kinetic-position-controllers, ros-kinetic-raw-description, ros-kinetic-roslaunch, ros-kinetic-rostest, ros-kinetic-ur-description, ros-kinetic-velocity-controllers, ros-kinetic-xacro
+Description: This package contains configuration for each robot instance (e.g.
+ cob4-X, raw3-X). There is a directory for each robot with configuration about urdf and hardware/device configurations.
