@@ -1,0 +1,12 @@
+Source: ros-indigo-cob-default-robot-behavior
+Section: misc
+Priority: extra
+Maintainer: Felix Messmer <fxm@ipa.fhg.de>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-indigo-cob-default-robot-behavior
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-cob-light, ros-indigo-cob-script-server, ros-indigo-rospy, ros-indigo-std-msgs, ros-indigo-std-srvs
+Description: The cob_default_robot_behavior package
