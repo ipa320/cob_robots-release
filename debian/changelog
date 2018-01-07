@@ -1,0 +1,107 @@
+ros-kinetic-cob-robots (0.6.8-0jessie) jessie; urgency=high
+
+  * Merge pull request #744 <https://github.com/ipa320/cob_robots/issues/744> from ipa320/indigo_release_candidate
+    Indigo release candidate
+  * Merge pull request #707 <https://github.com/ipa320/cob_robots/issues/707> from ipa-fxm/update_maintainer
+    update maintainer
+  * Merge github.com:ipa320/cob_robots into indigo_dev
+    Conflicts:
+    cob_default_robot_config/robots/cob4-8/script_server/command_gui_buttons.yaml
+  * update maintainer
+  * Merge pull request #686 <https://github.com/ipa320/cob_robots/issues/686> from ipa-fxm/APACHE_license
+    use license apache 2.0
+  * use license apache 2.0
+  * Contributors: Felix Messmer, ipa-fxm, ipa-nhg, ipa-uhr-mk
+
+ -- Felix Messmer <fxm@ipa.fhg.de>  Sat, 06 Jan 2018 23:00:00 -0000
+
+ros-kinetic-cob-robots (0.6.7-0jessie) jessie; urgency=high
+
+  * moved cob_supported_robots to standalone repo
+  * remove obsolete package cob_controller_configuration_gazebo
+  * added cob_supported_robots package
+  * Merge pull request #573 <https://github.com/ipa320/cob_robots/issues/573> from ipa-fxm/move_cob_moveit_config
+    move cob_moveit_config
+  * add missing cob_default_robot_behavior to meta-package
+  * adjust version + add to meta-package
+  * manually fix changelog
+  * Contributors: Felix Messmer, Mathias Lüdtke, ipa-fxm
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Sun, 30 Jul 2017 22:00:00 -0000
+
+ros-kinetic-cob-robots (0.6.6-0jessie) jessie; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Sun, 09 Oct 2016 22:00:00 -0000
+
+ros-kinetic-cob-robots (0.6.5-0jessie) jessie; urgency=high
+
+  * cob_behaviour
+  * cob_behaviour
+  * Contributors: ipa-cob4-2
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Thu, 31 Mar 2016 22:00:00 -0000
+
+ros-kinetic-cob-robots (0.6.4-0jessie) jessie; urgency=high
+
+  * migrate to package format 2
+  * remove trailing whitespaces
+  * revies dependencies
+  * Contributors: ipa-fxm
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Fri, 28 Aug 2015 22:00:00 -0000
+
+ros-kinetic-cob-robots (0.6.3-0jessie) jessie; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Tue, 16 Jun 2015 22:00:00 -0000
+
+ros-kinetic-cob-robots (0.6.2-0jessie) jessie; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Tue, 06 Jan 2015 23:00:00 -0000
+
+ros-kinetic-cob-robots (0.6.1-0jessie) jessie; urgency=high
+
+  * merge
+  * move cob_monitoring to cob_command_tools
+  * Contributors: Florian Weisshardt, ipa-nhg
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Sun, 14 Dec 2014 23:00:00 -0000
+
+ros-kinetic-cob-robots (0.6.0-0jessie) jessie; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Wed, 17 Sep 2014 22:00:00 -0000
+
+ros-kinetic-cob-robots (0.5.4-0jessie) jessie; urgency=high
+
+  * New maintainer
+  * Contributors: ipa-nhg
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Wed, 27 Aug 2014 22:00:00 -0000
+
+ros-kinetic-cob-robots (0.5.3-0jessie) jessie; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Thu, 27 Mar 2014 23:00:00 -0000
+
+ros-kinetic-cob-robots (0.5.2-0jessie) jessie; urgency=high
+
+
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Wed, 26 Mar 2014 23:00:00 -0000
+
+ros-kinetic-cob-robots (0.5.1-0jessie) jessie; urgency=high
+
+  * Initial catkinization.
+  * Contributors: abubeck
+
+ -- Florian Weisshardt <fmw@ipa.fhg.de>  Wed, 19 Mar 2014 23:00:00 -0000
+
+
