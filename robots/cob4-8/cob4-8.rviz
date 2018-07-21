@@ -7,7 +7,7 @@ Panels:
         - /Global Options1
         - /TF1/Frames1
       Splitter Ratio: 0.804714
-    Tree Height: 531
+    Tree Height: 843
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -137,16 +137,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        b_caster_r_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        b_caster_rotation_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         base_footprint:
           Alpha: 1
           Show Axes: false
@@ -171,22 +161,32 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        bl_caster_r_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        bl_caster_rotation_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        br_caster_r_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        br_caster_rotation_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         fl_caster_r_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         fl_caster_rotation_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        fr_caster_r_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        fr_caster_rotation_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -280,19 +280,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        sensorring_cam3d_back_frame:
+        sensorring_cam3d_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        sensorring_cam3d_back_link:
+        sensorring_cam3d_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        sensorring_cam3d_front_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         sensorring_link:
           Alpha: 1
           Show Axes: false
@@ -318,11 +314,19 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        torso_cam3d_down_link:
+        torso_cam3d_down_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        torso_cam3d_down_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        torso_cam3d_down_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         torso_cam3d_left_frame:
           Alpha: 1
           Show Axes: false
@@ -392,7 +396,6 @@ Visualization Manager:
       Size (m): 0.025
       Style: Spheres
       Topic: /base_laser_front/scan
-      Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
@@ -422,7 +425,6 @@ Visualization Manager:
       Size (m): 0.025
       Style: Spheres
       Topic: /base_laser_left/scan
-      Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
@@ -452,7 +454,6 @@ Visualization Manager:
       Size (m): 0.025
       Style: Spheres
       Topic: /base_laser_right/scan
-      Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
@@ -462,7 +463,6 @@ Visualization Manager:
       Enabled: true
       Name: PoseArray
       Topic: /particlecloud
-      Unreliable: false
       Value: true
     - Alpha: 1
       Buffer Length: 1
@@ -477,7 +477,6 @@ Visualization Manager:
         Y: 0
         Z: 0
       Topic: /move_base/DWAPlannerROS/global_plan
-      Unreliable: false
       Value: true
     - Alpha: 1
       Buffer Length: 1
@@ -492,7 +491,6 @@ Visualization Manager:
         Y: 0
         Z: 0
       Topic: /move_base/DWAPlannerROS/local_plan
-      Unreliable: false
       Value: true
     - Alpha: 1
       Buffer Length: 1
@@ -507,7 +505,6 @@ Visualization Manager:
         Y: 0
         Z: 0
       Topic: /move_base/TrajectoryPlannerROS/global_plan
-      Unreliable: false
       Value: true
     - Alpha: 1
       Buffer Length: 1
@@ -522,14 +519,13 @@ Visualization Manager:
         Y: 0
         Z: 0
       Topic: /move_base/TrajectoryPlannerROS/local_plan
-      Unreliable: false
       Value: true
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /sound/marker
       Name: SoundMarker
       Namespaces:
-        color: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -537,7 +533,7 @@ Visualization Manager:
       Marker Topic: /light_base/marker
       Name: LightBaseMarker
       Namespaces:
-        color: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -558,7 +554,6 @@ Visualization Manager:
       Normalize Range: true
       Queue Size: 2
       Transport Hint: raw
-      Unreliable: false
       Value: false
     - Class: rviz/Image
       Enabled: false
@@ -570,7 +565,6 @@ Visualization Manager:
       Normalize Range: true
       Queue Size: 2
       Transport Hint: raw
-      Unreliable: false
       Value: false
     - Class: rviz/Image
       Enabled: false
@@ -582,31 +576,17 @@ Visualization Manager:
       Normalize Range: true
       Queue Size: 2
       Transport Hint: raw
-      Unreliable: false
       Value: false
     - Class: rviz/Image
       Enabled: false
-      Image Topic: /sensorring_cam3d_front/depth/image
+      Image Topic: /sensorring_cam3d_upright/rgb/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
-      Name: SensorringCam3dFrontImage
+      Name: SensorringCam3dImage
       Normalize Range: true
       Queue Size: 2
       Transport Hint: raw
-      Unreliable: false
-      Value: false
-    - Class: rviz/Image
-      Enabled: false
-      Image Topic: /sensorring_cam3d_back/rgb/image_raw
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: SensorringCam3dBackImage
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
       Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
@@ -634,7 +614,6 @@ Visualization Manager:
       Size (m): 0.01
       Style: Flat Squares
       Topic: /cam3d_down/depth_registered/points
-      Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: false
@@ -664,7 +643,6 @@ Visualization Manager:
       Size (m): 0.01
       Style: Flat Squares
       Topic: /torso_cam3d_left/depth_registered/points
-      Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: false
@@ -694,37 +672,6 @@ Visualization Manager:
       Size (m): 0.01
       Style: Flat Squares
       Topic: /torso_cam3d_right/depth_registered/points
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: false
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: false
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 41949
-      Min Color: 0; 0; 0
-      Min Intensity: 177
-      Name: SensorringCam3FrontPointCloud2
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.01
-      Style: Flat Squares
-      Topic: /sensorring_cam3d_front/depth/points
-      Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: false
@@ -746,15 +693,14 @@ Visualization Manager:
       Max Intensity: 4096
       Min Color: 0; 0; 0
       Min Intensity: 0
-      Name: SensorringCam3dBackPointCloud2
+      Name: SensorringCam3dPointCloud2
       Position Transformer: XYZ
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
       Size (m): 0.01
       Style: Flat Squares
-      Topic: /sensorring_cam3d_back/depth_registered/points
-      Unreliable: false
+      Topic: /sensorring_cam3d/depth_registered/points
       Use Fixed Frame: true
       Use rainbow: true
       Value: false
@@ -774,7 +720,6 @@ Visualization Manager:
       Enabled: false
       Name: Map
       Topic: /map
-      Unreliable: false
       Value: false
     - Alpha: 1
       Class: rviz/GridCells
@@ -816,36 +761,34 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/XYOrbit
-      Distance: 12.544
+      Class: rviz/Orbit
+      Distance: 19.5897
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.4464
-        Y: 1.0861
-        Z: 0
+        X: 0.891724
+        Y: -0.865633
+        Z: 1.0872
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.785398
+      Pitch: 0.509797
       Target Frame: <Fixed Frame>
-      Value: XYOrbit (rviz)
-      Yaw: 0.785398
+      Value: Orbit (rviz)
+      Yaw: 4.28313
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 744
+  Height: 1056
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000016a000002a2fc0200000007fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000028000002a2000000dd00fffffffb0000000c00430061006d00650072006100000002a5000000cd0000000000000000fb0000003200530065006e0073006f007200720069006e006700430061006d0033006400460072006f006e00740049006d006100670065000000020f000000bb0000001600ffffff0000000100000169000002a2fc0200000007fb000000260054006f00720073006f00430061006d003300640044006f0077006e0049006d00610067006500000000280000010a0000001600fffffffb000000260054006f00720073006f00430061006d00330064004c0065006600740049006d0061006700650000000028000000f60000001600fffffffb000000280054006f00720073006f00430061006d00330064005200690067006800740049006d0061006700650000000028000001430000001600fffffffb0000003000530065006e0073006f007200720069006e006700430061006d00330064004200610063006b0049006d0061006700650000000028000002a20000001600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002a2000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a0000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000003a5000002a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000040000000000000141000003dafc0200000006fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000028000003da000000dd00fffffffb0000000c00430061006d00650072006100000002a5000000cd00000000000000000000000100000169000003dafc0200000007fb000000260054006f00720073006f00430061006d003300640044006f0077006e0049006d00610067006500000000280000010a0000001600fffffffb000000260054006f00720073006f00430061006d00330064004c0065006600740049006d0061006700650000000028000000f60000001600fffffffb000000280054006f00720073006f00430061006d00330064005200690067006800740049006d0061006700650000000028000001430000001600fffffffb0000002800530065006e0073006f007200720069006e006700430061006d003300640049006d0061006700650000000028000003da0000001600fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000002800000326000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a0000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000005f8000003da00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
-  SensorringCam3dBackImage:
-    collapsed: false
-  SensorringCam3dFrontImage:
+  SensorringCam3dImage:
     collapsed: false
   Time:
     collapsed: false
@@ -859,6 +802,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1301
+  Width: 1855
   X: 65
   Y: 24
