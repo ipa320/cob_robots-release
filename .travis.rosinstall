@@ -1,8 +1,0 @@
-- git:
-    uri: 'https://github.com/ipa320/cob_calibration_data.git'
-    local-name: cob_calibration_data
-    version: indigo_dev
-- git:
-    uri: 'https://github.com/ipa320/cob_supported_robots.git'
-    local-name: cob_supported_robots
-    version: indigo_dev
