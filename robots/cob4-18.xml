@@ -2,8 +2,8 @@
 <launch>
 
 	<!-- args -->
-	<arg name="robot" value="cob4-9"/>
-	<arg name="cob4-9-b1" default="localhost"/>
+	<arg name="robot" value="cob4-18"/>
+	<arg name="cob4-18-b1" default="localhost"/>
 	<arg name="env-script" default="$(find cob_bringup)/env.sh"/>
 	<arg name="sim" default="false"/>
 
@@ -17,20 +17,20 @@
 	</include>
 
 	<group>
-		<machine name="$(anon b1)" address="$(arg cob4-9-b1)" env-loader="$(arg env-script)" default="true" timeout="30"/>
+		<machine name="$(anon b1)" address="$(arg cob4-18-b1)" env-loader="$(arg env-script)" default="true" timeout="30"/>
 
 		<!-- start hardware -->
 		<group unless="$(arg sim)">
 			<include file="$(find cob_bringup)/tools/pc_monitor.launch">
 				<arg name="robot" value="$(arg robot)"/>
-				<arg name="pc" value="$(arg cob4-9-b1)"/>
+				<arg name="pc" value="$(arg cob4-18-b1)"/>
 				<arg name="enable_ntp_monitoring" value="false"/>
 			</include>
 		</group>
 
 		<include file="$(find cob_bringup)/drivers/sick_flexisoft.launch">
 			<arg name="robot" value="$(arg robot)"/>
-			<arg name="host" value="10.4.9.99"/>
+			<arg name="host" value="10.4.18.99"/>
 			<arg name="sim" value="$(arg sim)"/>
 		</include>
 		<include file="$(find cob_bringup)/drivers/bms.launch">
@@ -57,6 +57,11 @@
 			<arg name="robot" value="$(arg robot)"/>
 			<arg name="sim" value="$(arg sim)"/>
 		</include>
+		<include file="$(find cob_bringup)/drivers/light.launch">
+			<arg name="robot" value="$(arg robot)"/>
+			<arg name="component_name" value="light_base"/>
+			<arg name="sim_enabled" value="$(arg sim)"/>
+		</include>
 
 		<!-- start common nodes used in hardware and simulation -->
 		<include file="$(find cob_bringup)/drivers/scan_unifier.launch">
@@ -71,6 +76,9 @@
 		<node pkg="rostopic" type="rostopic" args="pub /safety_controller/state_is_valid std_msgs/Bool 'data: true' -r10" name="fake_collission_monitor" output="screen"/>
 
 		<include file="$(find cob_bringup)/tools/diagnostics_aggregator.launch">
+			<arg name="robot" value="$(arg robot)"/>
+		</include>
+		<include file="$(find cob_bringup)/tools/emergency_stop_monitor.launch">
 			<arg name="robot" value="$(arg robot)"/>
 		</include>
 		<include file="$(find cob_bringup)/tools/battery_monitor.launch">
@@ -96,6 +104,6 @@
 		</include>
 	</group>
 
-	<machine name="$(anon b1)" address="$(arg cob4-9-b1)" env-loader="$(arg env-script)" default="true" timeout="30"/>
+	<machine name="$(anon b1)" address="$(arg cob4-18-b1)" env-loader="$(arg env-script)" default="true" timeout="30"/>
 
 </launch>
