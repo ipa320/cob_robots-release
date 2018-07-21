@@ -1,4 +1,4 @@
-joint_names: ["arm_left_1_joint","arm_left_2_joint","arm_left_3_joint","arm_left_4_joint","arm_left_5_joint","arm_left_6_joint","arm_left_7_joint"]
+joint_names: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]
 action_name: /arm_left/joint_trajectory_controller/follow_joint_trajectory
 service_ns: /arm_left/driver
 default_vel: 0.3
@@ -18,7 +18,5 @@ hello: [hello1, hello2, hello1, hello2, side]
 wave1: [[-1.5, 0, 0, 0, 0, 0, 0]]
 wave2: [[-1.5, 0.3, 0, -1, 0, 0.7, 0]]
 wave3: [[-1.5, -0.3, 0, 1, 0, -0.7, 0]]
-
-grasp: [[1.3099743233768641, 1.0583851117018814, -0.9996024224947123, 2.2599744885298976, -0.7600036227809308, -0.4599815243631056, -1.369996196352949]]
 
 wave_demo: [home,wave1,wave2,wave3,wave2,wave1,home,side]
