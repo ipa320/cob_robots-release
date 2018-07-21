@@ -1,3 +1,32 @@
+## cob_robots (indigo) - 0.6.9-0
+
+The packages in the `cob_robots` repository were released into the `indigo` distro by running `/usr/bin/bloom-release cob_robots --track indigo --rosdistro indigo` on `Sat, 21 Jul 2018 15:26:58 -0000`
+
+These packages were released:
+- `cob_bringup`
+- `cob_default_robot_behavior`
+- `cob_default_robot_config`
+- `cob_hardware_config`
+- `cob_moveit_config`
+- `cob_robots`
+
+Version of package(s) in repository `cob_robots`:
+
+- upstream repository: https://github.com/ipa320/cob_robots.git
+- release repository: https://github.com/ipa320/cob_robots-release.git
+- rosdistro version: `0.6.8-0`
+- old version: `0.6.8-0`
+- new version: `0.6.9-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.6`
+- catkin_pkg version: `0.4.6`
+- rosdep version: `0.12.2`
+- rosdistro version: `0.6.8`
+- vcstools version: `0.1.40`
+
+
 ## cob_robots (kinetic) - 0.6.8-0
 
 The packages in the `cob_robots` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release cob_robots --track kinetic --rosdistro kinetic` on `Sun, 07 Jan 2018 13:02:04 -0000`
