@@ -1,3 +1,34 @@
+## cob_robots (melodic) - 0.7.2-1
+
+The packages in the `cob_robots` repository were released into the `melodic` distro by running `/usr/bin/bloom-release cob_robots --rosdistro melodic` on `Sat, 09 Nov 2019 19:10:11 -0000`
+
+These packages were released:
+- `cob_default_robot_behavior`
+- `cob_default_robot_config`
+- `cob_hardware_config`
+- `cob_moveit_config`
+
+These packages were explicitly ignored:
+- `cob_bringup`
+- `cob_robots`
+
+Version of package(s) in repository `cob_robots`:
+
+- upstream repository: https://github.com/ipa320/cob_robots.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.7.2-1`
+
+Versions of tools used:
+
+- bloom version: `0.9.0`
+- catkin_pkg version: `0.4.14`
+- rosdep version: `0.17.1`
+- rosdistro version: `0.7.5`
+- vcstools version: `0.1.42`
+
+
 ## cob_robots (kinetic) - 0.7.2-1
 
 The packages in the `cob_robots` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release cob_robots --rosdistro kinetic` on `Thu, 07 Nov 2019 10:37:02 -0000`
