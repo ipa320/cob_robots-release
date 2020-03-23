@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
-       name="cob4-22" >
+       name="cob4-23" >
 
   <!-- common stuff -->
   <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
 
   <!-- calibration -->
-  <xacro:include filename="$(find cob_hardware_config)/robots/cob4-22/urdf/properties.urdf.xacro" />
+  <xacro:include filename="$(find cob_hardware_config)/robots/cob4-23/urdf/properties.urdf.xacro" />
 
   <!-- base -->
   <xacro:include filename="$(find cob_description)/urdf/cob4_base/base.urdf.xacro" />
