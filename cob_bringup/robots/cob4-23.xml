@@ -2,7 +2,7 @@
 <launch>
 
 	<!-- args -->
-	<arg name="robot" value="cob4-22"/>
+	<arg name="robot" value="cob4-23"/>
 	<arg name="b1" default="localhost"/>
 	<arg name="env-script" default="$(find cob_bringup)/env.sh"/>
 	<arg name="sim" default="false"/>
@@ -30,7 +30,7 @@
 
 		<include file="$(find cob_bringup)/drivers/sick_flexisoft.launch">
 			<arg name="robot" value="$(arg robot)"/>
-			<arg name="host" value="10.4.22.99"/>
+			<arg name="host" value="10.4.23.99"/>
 			<arg name="sim" value="$(arg sim)"/>
 		</include>
 		<include file="$(find cob_bringup)/drivers/bms.launch">
@@ -57,6 +57,7 @@
 			<arg name="robot" value="$(arg robot)"/>
 			<arg name="sim" value="$(arg sim)"/>
 		</include>
+		<include file="$(find cob_bringup)/tools/autoinit.launch"/>
 		<include file="$(find cob_bringup)/drivers/light.launch">
 			<arg name="robot" value="$(arg robot)"/>
 			<arg name="component_name" value="light_base"/>
