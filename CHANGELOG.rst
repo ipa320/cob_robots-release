@@ -2,6 +2,26 @@
 Changelog for package cob_default_robot_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.4 (2020-03-18)
+------------------
+
+0.7.3 (2020-03-18)
+------------------
+* Merge pull request `#806 <https://github.com/ipa320/cob_robots/issues/806>`_ from fmessmer/remove_cob4-22
+  remove cob4-22
+* remove cob4-22
+* Merge pull request `#799 <https://github.com/ipa320/cob_robots/issues/799>`_ from HannesBachter/add_cob4-23
+  Add cob4 23
+* add cob4-23
+* cleanup for now
+* Added bringup files for raw-mini
+* Merge pull request `#792 <https://github.com/ipa320/cob_robots/issues/792>`_ from fmessmer/ci_updates
+  [travis] ci updates
+* fix roslaunch checks
+* fix test dependendies
+* catkin_lint fixes
+* Contributors: Felix Messmer, HannesBachter, Jannik Abbenseth, flg-vs, fmessmer
+
 0.7.2 (2019-11-07)
 ------------------
 * Merge pull request `#788 <https://github.com/ipa320/cob_robots/issues/788>`_ from HannesBachter/add_cob4-24
