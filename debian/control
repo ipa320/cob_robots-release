@@ -1,0 +1,13 @@
+Source: ros-melodic-cob-hardware-config
+Section: misc
+Priority: optional
+Maintainer: Felix Messmer <felixmessmer@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-catkin, ros-melodic-cob-supported-robots, ros-melodic-roslaunch, ros-melodic-rostest
+Homepage: http://ros.org/wiki/cob_hardware_config
+Standards-Version: 3.9.2
+
+Package: ros-melodic-cob-hardware-config
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-cob-calibration-data, ros-melodic-cob-description, ros-melodic-cob-omni-drive-controller, ros-melodic-costmap-2d, ros-melodic-diagnostic-aggregator, ros-melodic-joint-state-controller, ros-melodic-joint-state-publisher, ros-melodic-joint-state-publisher-gui, ros-melodic-joint-trajectory-controller, ros-melodic-laser-filters, ros-melodic-position-controllers, ros-melodic-raw-description, ros-melodic-robot-state-publisher, ros-melodic-rviz, ros-melodic-velocity-controllers, ros-melodic-xacro
+Description: This package contains configuration for each robot instance (e.g.
+ cob4-X, raw3-X). There is a directory for each robot with configuration about urdf and hardware/device configurations.
