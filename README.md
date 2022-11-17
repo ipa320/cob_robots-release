@@ -1,3 +1,32 @@
+## cob_robots (noetic) - 0.7.8-1
+
+The packages in the `cob_robots` repository were released into the `noetic` distro by running `/usr/bin/bloom-release cob_robots --rosdistro noetic` on `Thu, 17 Nov 2022 10:35:04 -0000`
+
+These packages were released:
+- `cob_bringup`
+- `cob_default_robot_behavior`
+- `cob_default_robot_config`
+- `cob_hardware_config`
+- `cob_moveit_config`
+- `cob_robots`
+
+Version of package(s) in repository `cob_robots`:
+
+- upstream repository: https://github.com/ipa320/cob_robots.git
+- release repository: https://github.com/ipa320/cob_robots-release.git
+- rosdistro version: `0.7.7-1`
+- old version: `0.7.7-1`
+- new version: `0.7.8-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.1`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## cob_robots (noetic) - 0.7.7-1
 
 The packages in the `cob_robots` repository were released into the `noetic` distro by running `/usr/bin/bloom-release cob_robots --rosdistro noetic` on `Fri, 29 Jul 2022 14:28:35 -0000`
