@@ -2,6 +2,9 @@
 Changelog for package cob_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.9 (2023-01-04)
+------------------
+
 0.7.8 (2022-11-17)
 ------------------
 * Merge pull request `#824 <https://github.com/ipa320/cob_robots/issues/824>`_ from fmessmer/add_cob4-30_ostwestfalen
