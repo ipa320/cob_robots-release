@@ -8,7 +8,10 @@
 	<arg name="pkg_hardware_config" default="$(find cob_hardware_config)"/>
 	<arg name="sim" default="false"/>
 	<arg name="reset_errors_before_recover" default="false"/>
-	<arg name="enable_stuck_detector" default="true"/>
+
+	<!-- enable either 'stuck_detector' or 'halt_detector' -->
+	<arg name="enable_stuck_detector" default="false"/>
+	<arg name="enable_halt_detector" default="true"/>
 
 	<arg name="component_name" value="base"/>
 	<arg name="interval_ms" value="20"/>
@@ -29,6 +32,12 @@
 		<arg name="start_external_sync" value="$(arg start_external_sync)"/>
 		<arg name="reset_errors_before_recover" value="$(arg reset_errors_before_recover)"/>
 	</include>
+
+	<group if="$(arg enable_halt_detector)">
+		<node pkg="cob_base_controller_utils" type="cob_halt_detector" ns="$(arg component_name)" name="halt_detector" output="screen">
+			<rosparam command="load" file="$(find cob_hardware_config)/robots/$(arg robot)/config/halt_detector.yaml" />
+		</node>
+	</group>
 
 	<group if="$(arg enable_stuck_detector)">
 		<include unless="$(arg sim)" file="$(find cob_base_controller_utils)/launch/stuck_detector.launch">
@@ -55,11 +64,11 @@
 		<!-- velocity smoother -->
 		<include file="$(find cob_bringup)/tools/velocity_smoother.launch">
 			<arg name="robot" value="$(arg robot)"/>
-			<arg name="config_file"           default="$(arg pkg_hardware_config)/robots/$(arg robot)/config/velocity_smoother.yaml"/>
-			<arg name="raw_cmd_vel_topic"     default="velocity_smoother/command"/>
-			<arg name="smooth_cmd_vel_topic"  default="twist_controller/command"/>
-			<arg name="robot_cmd_vel_topic"   default="twist_controller/command"/>
-			<arg name="odom_topic"            default="odometry_controller/odometry"/>
+			<arg name="config_file"           value="$(arg pkg_hardware_config)/robots/$(arg robot)/config/velocity_smoother.yaml"/>
+			<arg name="raw_cmd_vel_topic"     value="velocity_smoother/command"/>
+			<arg name="smooth_cmd_vel_topic"  value="twist_controller/command"/>
+			<arg name="robot_cmd_vel_topic"   value="twist_controller/command"/>
+			<arg name="odom_topic"            value="odometry_controller/odometry"/>
 		</include>
 	</group>
 </launch>
