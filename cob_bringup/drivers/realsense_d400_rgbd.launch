@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="namespace"           default="camera"/>
+    <arg name="nodelet_manager"     default="$(arg namespace)_nodelet_manager"/>
+
+    <!-- Camera device specific arguments -->
+    <arg name="serial_no"           default=""/>
+    <arg name="usb_port_id"         default=""/>
+    <arg name="device_type"         default=""/>
+    <arg name="tf_prefix"           default="$(arg namespace)"/>
+
+    <arg name="depth_width"         default="640"/>
+    <arg name="depth_height"        default="480"/>
+    <arg name="enable_depth"        default="true"/>
+
+    <arg name="color_width"         default="640"/>
+    <arg name="color_height"        default="480"/>
+    <arg name="enable_color"        default="true"/>
+
+    <arg name="depth_fps"           default="30"/>
+    <arg name="color_fps"           default="30"/>
+
+    <arg name="enable_pointcloud"   default="true"/>
+    <arg name="enable_sync"         default="false"/>
+    <arg name="align_depth"         default="true"/>
+
+    <!-- rgbd_launch specific arguments -->
+
+    <!-- Arguments for remapping all device namespaces -->
+    <arg name="depth"                           default="depth" />
+    <arg name="rgb"                             default="color" />
+
+    <arg name="depth_registered_pub"            default="depth_registered" />
+    <arg name="depth_registered"                default="depth_registered" unless="$(arg align_depth)" />
+    <arg name="depth_registered"                default="aligned_depth_to_color" if="$(arg align_depth)" />
+    <arg name="depth_registered_filtered"       default="$(arg depth_registered)" />
+    <arg name="projector"                       default="projector" />
+
+    <!-- Disable bond topics by default -->
+    <arg name="bond"                            default="" />  <!-- use '\-\-no-bond' to disable -->
+    <arg name="required"                        default="true"/>
+    <arg name="respawn"                         default="false"/>
+    <arg name="output"                          default="screen"/>  <!-- [ screen | log ]-->
+
+    <!-- Processing Modules -->
+    <arg name="rgb_processing"                  default="false"/>
+    <arg name="debayer_processing"              default="false" />
+    <arg name="ir_processing"                   default="false"/>
+    <arg name="depth_processing"                default="false"/>
+    <arg name="depth_registered_processing"     default="false"/>
+    <arg name="disparity_processing"            default="false"/>
+    <arg name="disparity_registered_processing" default="false"/>
+    <arg name="hw_registered_processing"        default="$(arg align_depth)" />
+    <arg name="sw_registered_processing"        default="true" unless="$(arg align_depth)" />
+    <arg name="sw_registered_processing"        default="false" if="$(arg align_depth)" />
+
+    <group ns="$(arg namespace)">
+        <!-- Launch the camera device nodelet-->
+        <include file="$(find cob_bringup)/drivers/realsense_d400_nodelet.xml">
+            <arg name="manager"                  value="$(arg nodelet_manager)"/>
+            <arg name="serial_no"                value="$(arg serial_no)"/>
+            <arg name="usb_port_id"              value="$(arg usb_port_id)"/>
+            <arg name="device_type"              value="$(arg device_type)"/>
+            <arg name="tf_prefix"                value="$(arg tf_prefix)"/>
+            <arg name="required"                 value="$(arg required)"/>
+            <arg name="respawn"                  value="$(arg respawn)"/>
+            <arg name="output"                   value="$(arg output)"/>
+
+            <arg name="depth"                    value="$(arg depth)"/>
+            <arg name="rgb"                      value="$(arg rgb)"/>
+
+            <arg name="depth_width"              value="$(arg depth_width)"/>
+            <arg name="depth_height"             value="$(arg depth_height)"/>
+            <arg name="enable_depth"             value="$(arg enable_depth)"/>
+
+            <arg name="color_width"              value="$(arg color_width)"/>
+            <arg name="color_height"             value="$(arg color_height)"/>
+            <arg name="enable_color"             value="$(arg enable_color)"/>
+
+            <arg name="depth_fps"                value="$(arg depth_fps)"/>
+            <arg name="color_fps"                value="$(arg color_fps)"/>
+
+            <arg name="enable_pointcloud"        value="$(arg enable_pointcloud)"/>
+            <arg name="enable_sync"              value="$(arg enable_sync)"/>
+            <arg name="align_depth"              value="$(arg align_depth)"/>
+        </include>
+
+        <!-- RGB processing -->
+
+        <include if="$(arg rgb_processing)"
+                file="$(find rgbd_launch)/launch/includes/rgb.launch.xml">
+            <arg name="manager"                       value="$(arg nodelet_manager)" />
+            <arg name="respawn"                       value="$(arg respawn)" />
+            <arg name="rgb"                           value="$(arg rgb)" />
+            <arg name="debayer_processing"            value="$(arg debayer_processing)" />
+        </include>
+
+        <group if="$(arg depth_registered_processing)">
+            <group if="$(arg sw_registered_processing)">
+                <node pkg="nodelet" type="nodelet" name="register_depth"
+                        args="load depth_image_proc/register $(arg nodelet_manager) $(arg bond)" respawn="$(arg respawn)">
+                    <remap from="rgb/camera_info"             to="$(arg rgb)/camera_info" />
+                    <remap from="depth/camera_info"           to="$(arg depth)/camera_info" />
+                    <remap from="depth/image_rect"            to="$(arg depth)/image_rect_raw" />
+                    <remap from="depth_registered/image_rect" to="$(arg depth_registered)/sw_registered/image_rect_raw" />
+                </node>
+
+                <!-- Publish registered XYZRGB point cloud with software registered input -->
+                <node pkg="nodelet" type="nodelet" name="points_xyzrgb_sw_registered"
+                        args="load depth_image_proc/point_cloud_xyzrgb $(arg nodelet_manager) $(arg bond)" respawn="$(arg respawn)">
+                    <remap from="rgb/image_rect_color"        to="$(arg rgb)/image_rect_color" />
+                    <remap from="rgb/camera_info"             to="$(arg rgb)/camera_info" />
+                    <remap from="depth_registered/image_rect" to="$(arg depth_registered_filtered)/sw_registered/image_rect_raw" />
+                    <remap from="depth_registered/points"     to="$(arg depth_registered)/points" />
+                </node>
+            </group>
+
+            <group if="$(arg hw_registered_processing)">
+                <!-- Publish registered XYZRGB point cloud with hardware registered input (ROS Realsense depth alignment) -->
+                <node pkg="nodelet" type="nodelet" name="points_xyzrgb_hw_registered"
+                        args="load depth_image_proc/point_cloud_xyzrgb $(arg nodelet_manager) $(arg bond)" respawn="$(arg respawn)">
+                    <remap from="rgb/image_rect_color"        to="$(arg rgb)/image_rect_color" />
+                    <remap from="rgb/camera_info"             to="$(arg rgb)/camera_info" />
+                    <remap from="depth_registered/image_rect" to="$(arg depth_registered)/image_raw" />
+                    <remap from="depth_registered/points"     to="$(arg depth_registered_pub)/points" />
+                </node>
+            </group>
+        </group>
+
+    </group>
+</launch>
